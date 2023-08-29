@@ -1,0 +1,28 @@
+div {
+    height: 100%;
+    padding: .5rem;
+    nb-card-header {
+      display: flex;
+      justify-content: space-between;
+      h3{
+          color: #1e1e2d;
+      }
+    }
+    main {
+      background-color: #ffff;
+    } 
+    footer{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 1rem;
+      flex-direction: row-reverse;
+      .btn-primary{
+          font-weight: bold;
+      }
+    }
+  }
+  
+  small{
+    color: red;
+  }

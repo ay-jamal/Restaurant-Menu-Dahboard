@@ -1,0 +1,16 @@
+.order-header .container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width:767px) {
+    h1{
+      text-align: center;
+    }
+  }

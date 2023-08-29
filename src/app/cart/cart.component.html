@@ -1,0 +1,44 @@
+
+<div class="section cart-header">
+  <div class="container">
+    <h1>السلة</h1>
+    <button
+      (click)="goToOrder()"
+      type="button"
+      class="btn btn-primary order-button"
+    >
+      انهاء الطلب <span class="badge text-bg-secondary">4</span>
+    </button>
+  </div>
+</div>
+<div class="section cart-body">
+  <div class="cart-body" style="padding: 1rem">
+    <div class="card" style="width: 100%">
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item"
+          *ngFor="let item of cartItems; let i = index"
+        >
+          <div class="item-des">
+            <i
+              (click)="removeFromCart(item.item)"
+              class="fa-solid fa-xmark"
+            ></i>
+            <img src="./assets/images/test1.jpg" alt="" class="item-img" />
+            <!-- {{ item.name }} -->
+          </div>
+          <div class="form-outline">
+            <input
+              type="number"
+              id="typeNumber"
+              class="form-control"
+              [(ngModel)]="item.quantity"
+              (ngModelChange)="updateQuantity(item, i)"
+              placeholder="الكمية"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,192 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary-100: #ffff;
+  --clr-primary-200: #525f7f;
+  --clr-primary-300: #32325d1b;
+  --clr-primary-400: #5e72e4;
+}
+
+a{
+  text-decoration: none;
+}
+
+body.secondary-theme {
+  --clr-primary-200: #191d23;
+  --clr-primary-400: #df6751;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Cairo", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #525f7f;
+  direction: rtl;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+P {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.header-text-lg {
+  font-size: 2.1875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  position: relative;
+  z-index: 999;
+}
+
+.header-text-md {
+  font-size: 1.6275rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.text-white {
+  color: var(--clr-primary-100);
+}
+
+.cart {
+    position: fixed;
+    top: 12px;
+    left: 10px;
+    z-index: 999;
+}
+
+.item-img {
+  width: 30px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.card-header {
+    color: #32325d;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  .card-header-descreption {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  
+  @media (max-width: 767px) {
+    header {
+      display: none;
+    }
+  }
+
+  .absolute {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+  }
+  
+  .divider {
+    padding: 0.5rem;
+  }
+  
+  .line-break {
+    width: 100%;
+    height: 0.1px;
+    background-color: var(--clr-primary-300);
+  }
+
+.price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.flex {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .space-between {
+    justify-content: space-between;
+  }
+  
+  .space-around {
+    justify-content: space-around;
+  }
+
+  
+  .filter-item {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    color: var(--clr-primary-400);
+    font-weight: 500;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background-color: var(--clr-primary-100);
+    transition: all 0.15s ease;
+    border-radius: 10px;
+  }
+  
+  .filter-item.active {
+    background-color: var(--clr-primary-400);
+    color: #fff;
+  }
+
+  
+  .menu-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .menu-item {
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .menu-item img {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .meun-item-content {
+    padding: 1rem;
+  }
+  
+  section {
+    display: none;
+  }
+  
+  section.active {
+    display: block;
+  }
+  
+  .information li {
+    margin-inline-end: 10px;
+  }
+  
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

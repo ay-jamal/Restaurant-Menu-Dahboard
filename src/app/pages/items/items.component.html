@@ -1,0 +1,39 @@
+<div class="line-break"></div>
+<div class="divider"></div>
+<div class="conrainer">
+  <section
+    class="section active"
+    id="pizza"
+    *ngFor="let subcategory of subcategories"
+  >
+    <div class="container">
+      <div
+        class="section-header header-text-lg flex space-around"
+     
+      >
+        {{ subcategory.name }}
+      </div>
+      <div class="divider"></div>
+      <div class="menu-items">
+        <div class="menu-item"  *ngFor="let item of subcategory.items" >
+          <img src="/assets/images/test1.jpg" alt="" />
+          <div class="meun-item-content card-header-descreption">
+            <div class="heading">{{item.name}}</div>
+            <div class="descreption">
+              {{ item.description }}
+            </div>
+            <div class="price">
+              <small> {{item.price}} د</small>
+              <button (click)="addToCart(item)" type="button" class="btn btn-primary add-to-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                اظافة للسلة
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="divider"></div>
+    </div>
+  </section>
+</div>

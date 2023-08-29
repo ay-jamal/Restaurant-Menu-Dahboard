@@ -1,0 +1,38 @@
+<div>
+  <header class="mb-4">
+    <h3>قم باختيار مطعم</h3>
+  </header>
+  <main>
+    <form [formGroup]="restaurantsForm" class="form-container">
+      <div class="input-container m-1">
+        <select formControlName="name" type="text" class="form-select">
+          <option value="0">قم بأختيار مطعم</option>
+          <option
+            *ngFor="let restaurant of restaurants"
+            [value]="restaurant.id"
+          >
+            {{ restaurant.name }}
+          </option>
+        </select>
+        <small
+          *ngIf="
+            restaurantsForm.get('name')?.invalid &&
+            restaurantsForm.get('name')?.touched
+          "
+        >
+          يجب اختيار مطعم
+        </small>
+      </div>
+    </form>
+  </main>
+  <footer>
+    <button
+      type="submit"
+      [disabled]="!restaurantsForm.valid"
+      (click)="submitForm()"
+      class="btn btn-primary"
+    >
+      اختيار
+    </button>
+  </footer>
+</div>
