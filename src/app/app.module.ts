@@ -14,7 +14,8 @@ import { BrandComponent } from './shared/brand/brand.component';
 import { CartButtonComponent } from './shared/cart-button/cart-button.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ImgSliderComponent } from './shared/img-slider/img-slider.component';
-
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const ProjectConfigrations = (config: ConfigService) => {
@@ -36,13 +37,15 @@ const ProjectConfigrations = (config: ConfigService) => {
     HeaderComponent,
     ImgSliderComponent,
     BrandComponent,
+    CategoryPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

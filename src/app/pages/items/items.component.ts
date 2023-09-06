@@ -10,40 +10,38 @@ import { ItemsService } from 'src/app/service/items.service';
 })
 export class ItemsComponent implements OnInit {
 
-  subcategories: any
+  subcategories: any = []
+  categoryId:any;
+  restaurantId:any;
 
   constructor(
     private cartService: CartService,
     private itemService: ItemsService,
     private router:ActivatedRoute
-  ) {
-    this.subcategories = []
-    this.router.paramMap.subscribe({
-      next:(res:any)=>{
-        console.log(res.params.id);
-        if(!res.params.id) return
-        this.itemService.getAllByCategoryId(res.params.id).subscribe({
-          next: (res:any) => {
-            console.log(res);
-            this.subcategories = res
-          }
-        })
-      }
-    })
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.itemService.getcategoryIdSubject().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.itemService.getAllByCategoryId(res).subscribe({
+
+    this.router.queryParams.subscribe({
+      next:(res:any)=>{
+        this.restaurantId = res.restaurantId
+      }
+    })
+    
+    this.router.paramMap.subscribe({
+      next:(res:any)=>{
+        this.categoryId = res.params.id
+        if(!this.categoryId) return
+        
+        this.itemService.getAllByCategoryId(this.categoryId).subscribe({
           next: (res:any) => {
-            console.log(res);
+            console.log('items ',res);
             this.subcategories = res
           }
         })
       }
     })
+
   }
 
 
@@ -56,8 +54,8 @@ export class ItemsComponent implements OnInit {
   }
 
   addToCart(item: any) {
-    console.log('hi from cart ');
-    
+    console.log('hi from items component ');
+    item.restaurantId = this.restaurantId
     this.cartService.addItemToCart(item);
   }
 

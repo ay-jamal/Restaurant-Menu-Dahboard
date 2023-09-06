@@ -1,11 +1,17 @@
 <div class="line-break"></div>
 <div class="divider"></div>
 <div class="conrainer">
+  <h2 class="empty" *ngIf="!subcategories.length">The Items List Is Empty</h2>
+
+  <div class="wrapper" *ngIf="subcategories.length">
+
   <section
     class="section active"
     id="pizza"
     *ngFor="let subcategory of subcategories"
   >
+  <div class="wrapper" *ngIf="subcategory.items.length">
+
     <div class="container">
       <div
         class="section-header header-text-lg flex space-around"
@@ -15,25 +21,29 @@
       </div>
       <div class="divider"></div>
       <div class="menu-items">
-        <div class="menu-item"  *ngFor="let item of subcategory.items" >
-          <img src="/assets/images/test1.jpg" alt="" />
-          <div class="meun-item-content card-header-descreption">
-            <div class="heading">{{item.name}}</div>
-            <div class="descreption">
-              {{ item.description }}
-            </div>
-            <div class="price">
-              <small> {{item.price}} د</small>
-              <button (click)="addToCart(item)" type="button" class="btn btn-primary add-to-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-                اظافة للسلة
-              </button>
+
+          <div class="menu-item"  *ngFor="let item of subcategory.items" >
+            <img src="/assets/images/test1.jpg" alt="" />
+            <div class="meun-item-content card-header-descreption">
+              <div class="heading">{{item.name}}</div>
+              <div class="descreption">
+                {{ item.description }}
+              </div>
+              <div class="price">
+                <small> {{item.price}} د</small>
+                <button (click)="addToCart(item)" type="button" class="btn btn-primary add-to-cart">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  اظافة للسلة
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        
       </div>
       <div class="divider"></div>
       <div class="divider"></div>
     </div>
+    </div>
   </section>
+  </div>
 </div>

@@ -11,7 +11,7 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  cartItems: { item: string; quantity: number }[] = [];
+  cartItems: any;
   cartItemsSubscription!: Subscription;
 
   constructor(private cartService: CartService, private route: Router,
@@ -20,10 +20,14 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cartItemsSubscription = this.cartService.getCartItemsSubject().subscribe(items => {
-      console.log('hi from cart component');
-      console.log(items);
-      this.cartItems = items;
+    //console.log('hi from cart component');
+    this.cartService.cartItemsSubject.subscribe((res:any)=>false)
+    this.cartItemsSubscription = this.cartService.getCartItemsSubject().subscribe({
+      next:(items:any) => {
+        console.log(items.cartitems);
+        this.cartItems = items.cartitems;
+      },
+      error:(err)=> false
     });
   }
 

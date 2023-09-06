@@ -187,6 +187,12 @@ P {
     margin-inline-end: 10px;
   }
   
+  img{
+    max-width: 100%
+  }
+  html,body{
+    height: 100%;
+  }
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

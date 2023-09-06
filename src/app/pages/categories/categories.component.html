@@ -2,16 +2,20 @@
 <div class="filtet-items">
   <div class="container">
     <ul class="filter flex space-around">
-      <li routerLinkActive="ative"  [routerLink]="['items/', 1]" class="filter-item " id="all">جميع الأقسام</li>
       <li
         routerLinkActive="active"
-        [routerLink]="['items/', category.id]"
-        (click)="sendcategoryId(category.id)"
         *ngFor="let category of categories"
-        class="filter-item"
+        [routerLink]="['items/', category.id]"
+        [queryParams]="{restaurantId: category.restaurantId}"
+        (click)="sendcategoryId(category.id)"
+        class="category-wrapper"
         [id]="category.id"
       >
-        {{ category.name }}
+        <app-category-page
+        [categoryObj]="category"
+        >
+
+        </app-category-page>
       </li>
     </ul>
   </div>

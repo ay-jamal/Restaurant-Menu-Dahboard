@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       next: (res: any) => {
         console.log(res);  
         this.name = res.params.name
-        this.router.navigate([`/home/${this.name}`])
+        //this.router.navigate([`/home/${this.name}`]) //no use of it
         this.restaurantsService.restaurantName = res.params.name
       }
     })

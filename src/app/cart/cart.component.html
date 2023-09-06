@@ -7,7 +7,7 @@
       type="button"
       class="btn btn-primary order-button"
     >
-      انهاء الطلب <span class="badge text-bg-secondary">4</span>
+      انهاء الطلب <span class="badge text-bg-secondary">{{cartItems?.length}}</span>
     </button>
   </div>
 </div>
@@ -17,23 +17,24 @@
       <ul class="list-group list-group-flush">
         <li
           class="list-group-item"
-          *ngFor="let item of cartItems; let i = index"
+          *ngFor="let element of cartItems; let i = index"
         >
           <div class="item-des">
             <i
-              (click)="removeFromCart(item.item)"
+              (click)="removeFromCart(element.item)"
               class="fa-solid fa-xmark"
             ></i>
             <img src="./assets/images/test1.jpg" alt="" class="item-img" />
-            <!-- {{ item.name }} -->
+
+              {{ element.item.name }}
           </div>
           <div class="form-outline">
             <input
               type="number"
               id="typeNumber"
               class="form-control"
-              [(ngModel)]="item.quantity"
-              (ngModelChange)="updateQuantity(item, i)"
+              [(ngModel)]="element.quantity"
+              (ngModelChange)="updateQuantity(element, i)"
               placeholder="الكمية"
             />
           </div>
