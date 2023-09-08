@@ -46,14 +46,14 @@ export class OrderComponent {
     if(this.orderForm.invalid) return
     const orderObj = {
       ...this.orderForm.value,
-      restaurantId: parseInt(this.cartItems[0].item.restaurantId),
-      items: this.cartItems.map((item:any)=> {
+      restaurantId: +this.cartItems[0].item.restaurantId,
+      items: this.cartItems.map((items:any)=> {
         return {
-          itemId: parseInt(item.item.id),
-          quantity: parseInt(item.quantity)
+          itemId: +items.item.id,
+          quantity: +items.quantity
         }
       } )
     }
-    this.orderService.sendOrder(orderObj).subscribe()
+    this.orderService.sendOrder(orderObj).subscribe(res => console.log(res))
   }
 }
