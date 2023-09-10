@@ -8,14 +8,12 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/:name', pathMatch: 'full' },
-  { path: 'home/orders', component: HomeComponent, children: [
-    { path: '', component: OrderComponent },
-    ], 
-  },
+  
   {
     path: 'home/:name', component: HomeComponent, children: [
       { path: '', component: CategoriesComponent },
-      { path: 'items/:id', component: ItemsComponent }
+      { path: 'items/:id', component: ItemsComponent },
+      { path: 'orders', component: OrderComponent }
     ],
   },
   { path: 'cart', component: CartComponent },

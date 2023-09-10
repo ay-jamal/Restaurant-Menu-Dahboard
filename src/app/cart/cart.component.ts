@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/service/cart.service';
+import { RestaurantsService } from '../service/restaurants.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,6 +16,7 @@ export class CartComponent implements OnInit {
   cartItemsSubscription!: Subscription;
 
   constructor(private cartService: CartService, private route: Router,
+    private restaurantsService:RestaurantsService
     ) {
    
   }
@@ -43,7 +45,8 @@ export class CartComponent implements OnInit {
   }
 
   goToOrder() {
-    this.route.navigate(['/home/orders'])
+    const restaurantName = this.restaurantsService.restaurantName
+    this.route.navigate([`/home/${restaurantName}/orders`])
   }
 
   ngOnDestroy(): void {

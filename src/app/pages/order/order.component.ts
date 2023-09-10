@@ -3,6 +3,7 @@ import { CartService } from 'src/app/service/cart.service';
 import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderService } from 'src/app/service/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -28,7 +29,8 @@ export class OrderComponent {
 
   constructor(
     private cartService:CartService,
-    private orderService:OrderService
+    private orderService:OrderService,
+    private router:Router
   ){}
   
   ngOnInit(){
@@ -54,6 +56,9 @@ export class OrderComponent {
         }
       } )
     }
-    this.orderService.sendOrder(orderObj).subscribe(res => console.log(res))
+    this.orderService.sendOrder(orderObj).subscribe(res => {
+      console.log(res)
+      this.router.navigate(['/home'])
+    })
   }
 }
